@@ -25,6 +25,15 @@ def factorial(num):
         return 1
     else:
         return num * factorial(num - 1)
+ 
+@app.route("/adios")
+@app.route("/adios/<nombre>")
+def saludo(nombre=None):
+    if nombre is None:
+        return "adios desconocido"
+    
+    return f"adios {nombre}"
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
